@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowoz pizzy</title>
+    <link rel="stylesheet" href="stylespizza.css">
+</head>
+<body>
+    <script>
+        function przycisk() {
+            
+            let cenailosc = document.getElementById("ilosc").value * 30;
+            let odleglosc = document.getElementById("odleglosc").value;
+            let cenaodleglosc;
+            if (odleglosc<=10) {
+                cenaodleglosc=0;
+            } else if (odleglosc<=50) {
+                cenaodleglosc=30;
+            } else {
+                cenaodleglosc=50;
+            }
+            let cenacalkowita = cenailosc+cenaodleglosc;
+            document.getElementById("cena").innerHTML = "Cena za pizze wraz z dostawą wynosi: " + cenacalkowita + " zł";
+            if (odleglosc==0 || document.getElementById("ilosc").value == 0) {
+                document.getElementById("cena").innerHTML = "Nie wypełniono luk.";
+            }
+
+            if (!(odleglosc ==0) && !(document.getElementById("ilosc").value == 0)) {
+                document.getElementById("przyciskzamowienia").style.border = "2px solid green";
+            }
+        }
+    </script>
+    <header>
+        <h1><a href="index.html">Dowoz pizzy</a></h1>
+        <img src="https://i.pinimg.com/originals/bc/e2/7d/bce27d087bba640e26091d2fbe8b2ea4.gif" alt="GIF Pizzy" style="width: 200px;">
+    </div>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>Cennik</th>
+            </tr>
+            <tr>
+                <td>Pizza</td>
+                <td>30 zł</td>
+            </tr>
+            <tr>
+                <td>Dowóz do 10 km</td>
+                <td>Za darmo</td>
+            </tr>
+            <tr>
+                <td>Dowóz do 50 km</td>
+                <td>30 zł</td>
+            </tr>
+            <tr>
+                <td>Dowóz powyżej 50 km</td>
+                <td>50 zł</td>
+            </tr>
+        </table>
+        <section>
+        <form>
+            <input type="number" id="ilosc" placeholder="Wpisz ilość pizz" required><br>
+            <input type="number" id="odleglosc" placeholder="Podaj odległość (km)" required><br>
+            <input type="button" id="przyciskzamowienia" onclick=przycisk() value="Zamów" >
+            <h1 id="cena"></h1>
+        </form>
+    </main>
+     <footer>
+        <p>Stopka</p>
+    </footer>
+</body>
+</html>
+

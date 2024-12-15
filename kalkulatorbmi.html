@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="stylesbmi.css">
+</head>
+<body>
+    <script>
+        function liczenie() {
+            let wzrost = Math.pow(document.getElementById("wzrostid").value, 2);
+            let waga = document.getElementById("wagaid").value;
+            let bmi = (waga/wzrost).toFixed(2);
+            if (bmi<18.5) {
+                document.getElementById("opisid").value = "Twoje BMI jest za niskie!";
+                document.getElementById("obliczonebmi").value = bmi;  
+                document.getElementById("opisid").style.backgroundColor = "red";
+                document.getElementById("obliczonebmi").style.transitionDuration = "0.5s";  
+                document.getElementById("obliczonebmi").style.color = "black";  
+                document.getElementById("opisid").style.color = "white";
+                document.getElementById("opisid").style.textShadow = "2px 2px 2px black";
+                document.getElementById("opisid").style.transitionDuration = "0.5s";
+            } else if (bmi>18.5 && bmi<25) {
+                document.getElementById("opisid").value = "Twoje BMI jest prawidłowe.";
+                document.getElementById("obliczonebmi").value = bmi;
+                document.getElementById("obliczonebmi").style.transitionDuration = "0.5s";  
+                document.getElementById("obliczonebmi").style.color = "black";  
+                document.getElementById("opisid").style.backgroundColor = "green";
+                document.getElementById("opisid").style.color = "white";
+                document.getElementById("opisid").style.textShadow = "2px 2px 2px black";
+                document.getElementById("opisid").style.transitionDuration = "0.5s";
+            } else if (bmi>25) {
+                document.getElementById("opisid").value = "Twoje BMI jest za wysokie!";
+                document.getElementById("obliczonebmi").value = bmi; 
+                document.getElementById("opisid").style.backgroundColor = "red";
+                document.getElementById("obliczonebmi").style.transitionDuration = "0.5s"; 
+                document.getElementById("obliczonebmi").style.color = "black";   
+                document.getElementById("opisid").style.color = "white";
+                document.getElementById("opisid").style.textShadow = "1px 1px 2px black";
+                document.getElementById("opisid").style.transitionDuration = "0.5s";
+            }
+            if (wzrost==0 || waga==0) {
+                document.getElementById("opisid").value = "Brak danych.";
+                document.getElementById("opisid").style.color = "red";
+                document.getElementById("opisid").style.backgroundColor = "grey";
+                document.getElementById("opisid").style.transitionDuration = "0.5s";
+            }
+        }
+            
+        
+    </script>
+    <header>
+        <h1><a href="index.html">Kalkulator BMI</a></h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/10476/10476452.png" href="Ikona BMI" style="width: 10%;">
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>Zakres</th>
+                <th>Opis</th>
+            </tr>
+            <tr class="red">
+                <td>Poniżej 18.5</td>
+                <td>Za niskie</td>
+            </tr>
+            <tr class="green">
+                <td>18.5-25</td>
+                <td>Prawidłowe</td>
+            </tr>
+            <tr class="red">
+                <td>Powyżej 25</td>
+                <td>Za wysokie</td>
+            </tr>
+        </table>
+        <form>
+            <input type="number" id="wzrostid" placeholder="Wzrost (m)" required><br>
+            <input type="number" id="wagaid" placeholder="Waga (kg)" required><br>
+            <input type="number" id="obliczonebmi" placeholder="Wynik BMI" disabled><br>
+            <input type="text" id="opisid" placeholder="Opis" disabled><br>
+            <input type="button" id="obliczenie" onclick=liczenie() value="Oblicz">
+        </form>
+    </main>
+    <footer>
+        <p>Stopka</p>
+    </footer>
+</body>
+</html>
