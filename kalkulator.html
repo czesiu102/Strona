@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="styleskalkulator.css">
+</head>
+<body>
+<script>
+    function fdodawanie() {
+        let a = parseInt(document.getElementById("num1").value);
+        let b = parseInt(document.getElementById("num2").value);
+            let dzialanie = a+b;
+        document.getElementById("wynik").value = dzialanie;
+        document.getElementById("wynik").style.backgroundColor = "green";
+        document.getElementById("wynik").style.color = "white";
+        document.getElementById("wynik").style.transitionDuration = "0.5s";
+        if (isNaN(dzialanie)) {
+            document.getElementById("wynik").value = "Nie podałeś liczb";
+        }
+    }
+    function fodejmowanie() {
+        let a = parseInt(document.getElementById("num1").value);
+        let b = parseInt(document.getElementById("num2").value);
+            let dzialanie = a-b;
+        document.getElementById("wynik").value = dzialanie;
+        document.getElementById("wynik").style.backgroundColor = "red";
+        document.getElementById("wynik").style.color = "white";
+        document.getElementById("wynik").style.transitionDuration = "0.5s";
+        if (isNaN(dzialanie)) {
+            document.getElementById("wynik").value = "Nie podałeś liczb";
+        }
+    }
+    function fmnozenie() {
+        let a = parseInt(document.getElementById("num1").value);
+        let b = parseInt(document.getElementById("num2").value);
+            let dzialanie = a*b;
+        document.getElementById("wynik").value = dzialanie;
+        document.getElementById("wynik").style.backgroundColor = "blue";
+        document.getElementById("wynik").style.color = "white";
+        document.getElementById("wynik").style.transitionDuration = "0.5s";
+        if (isNaN(dzialanie)) {
+            document.getElementById("wynik").value = "Nie podałeś liczb";
+        }
+    }
+    function fdzielenie() {
+        let a = parseInt(document.getElementById("num1").value);
+        let b = parseInt(document.getElementById("num2").value);
+            let dzialanie = a/b;
+        document.getElementById("wynik").value = dzialanie;
+        document.getElementById("wynik").style.backgroundColor = "blueviolet";
+        document.getElementById("wynik").style.color = "white";
+        document.getElementById("wynik").style.transitionDuration = "0.5s";
+        if (isNaN(dzialanie)) {
+            document.getElementById("wynik").value = "Nie podałeś liczb";
+        }
+    }
+</script>
+
+    <header>
+        <h1><a href="index.html">Kalkulator</a></h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/2344/2344132.png" alt="kalkulator" style="width: 10%;">
+    </header>
+<main>
+<form>
+    <input type="number" id="num1" placeholder="Pierwsza liczba" required><br>
+    <input type="number" id="num2" placeholder="Druga liczba" required><br>
+    <input type="button" class="przycisk1" id="dodawanieb" onclick=fdodawanie() value="Dodawanie">
+    <input type="button" class="przycisk2" id="odejmowanieb" onclick=fodejmowanie() value="Odejmowanie">
+    <input type="button" class="przycisk3" id="mnozenieb" onclick=fmnozenie() value="Mnozenie">
+    <input type="button" class="przycisk4" id="dzielenieb" onclick=fdzielenie() value="Dzielenie"><br>
+    <input type="text" id="wynik" placeholder="Wynik" disabled>
+</form>
+</main>
+
+<footer>
+    <p>Stopka</p>
+</footer>
+</body>
+</html>
